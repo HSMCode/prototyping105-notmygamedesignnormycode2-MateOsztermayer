@@ -22,13 +22,13 @@ public class PlayerMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
 
         //set normal speed of the ship/player
-        speed = 40f;
+        speed = 10f;
         boostTimer = 0;
         boosting = false;
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         // Move the ship/player:
         float hAxis = Input.GetAxis("Horizontal");
@@ -43,23 +43,21 @@ public class PlayerMovement : MonoBehaviour
         //Map Boundaries
         if(transform.position.x < -screenSize.x)
         {
-            transform.position = new Vector2(-screenSize.x, transform.position.y);
+            //(OutOfBoundary)OOB_value : berechnet wie weit der Player ausserhalb Boundary rausgeflogen ist
+            float OOB_value = Mathf.Abs(transform.position.x + screenSize.x);
+
+            //Player kommt so weit von rechts, wie er nach links rausgeflogen ist
+            transform.position = new Vector2(screenSize.x - OOB_value, transform.position.y);
+            //transform.position = new Vector2(-screenSize.x, transform.position.y);
         }
         else if(transform.position.x > screenSize.x)
         {
-            transform.position = new Vector2(screenSize.x, transform.position.y);
-        }
+            //(OutOfBoundary)OOB_value : berechnet wie weit der Player ausserhalb Boundary rausgeflogen ist
+            float OOB_value = Mathf.Abs(screenSize.x - transform.position.x);
 
-        //normal speed when not boosting 
-        if (boosting)
-        {
-            boostTimer += Time.deltaTime;
-            if (boostTimer >= 6)
-            {
-                speed = 40f;
-                boostTimer = 0;
-                boosting = false;
-            }
+            //Player kommt so weit von links, wie er nach rechts rausgeflogen ist
+            transform.position = new Vector2(-screenSize.x + OOB_value, transform.position.y);
+            //transform.position = new Vector2(screenSize.x, transform.position.y);
         }
 
     }
@@ -70,7 +68,7 @@ public class PlayerMovement : MonoBehaviour
         if(other.tag == "SpeedBoost")
         {
             boosting = true;
-            speed = 100f;
+            speed = 20f;
         }
     }
 }

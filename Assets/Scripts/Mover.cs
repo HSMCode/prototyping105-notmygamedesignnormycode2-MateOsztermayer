@@ -14,7 +14,7 @@ public class Mover : MonoBehaviour
     }
 
     // Move obstacles automatically
-    void FixedUpdate()
+    void Update()
     {
         transform.Translate(Vector3.down * Time.deltaTime * speed);
     }

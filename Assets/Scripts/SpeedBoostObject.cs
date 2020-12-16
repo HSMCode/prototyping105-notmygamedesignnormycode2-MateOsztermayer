@@ -9,7 +9,7 @@ public class SpeedBoostObject : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        speed = Random.Range(5,15);
+        speed = Random.Range(7,15);
     }
 
     // Update is called once per frame

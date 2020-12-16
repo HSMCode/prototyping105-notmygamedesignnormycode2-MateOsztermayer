@@ -293,7 +293,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.019533088, g: 0, b: 0.066037714, a: 0}
+  m_BackGroundColor: {r: 0.04153517, g: 0.020024916, b: 0.16981131, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 1
@@ -528,8 +528,8 @@ GameObject:
   - component: {fileID: 953369086}
   - component: {fileID: 953369085}
   - component: {fileID: 953369084}
-  - component: {fileID: 953369083}
   - component: {fileID: 953369082}
+  - component: {fileID: 953369083}
   m_Layer: 0
   m_Name: spaceship_01
   m_TagString: Player
@@ -1378,6 +1378,11 @@ PrefabInstance:
       propertyPath: m_Volume
       value: 0.104
       objectReference: {fileID: 0}
+    - target: {fileID: 7015568786068917029, guid: 5296bfd469375704cacbe2c0440b00c7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7015568786068917030, guid: 5296bfd469375704cacbe2c0440b00c7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1448,6 +1453,11 @@ PrefabInstance:
       propertyPath: scoreText
       value: 
       objectReference: {fileID: 1111776629}
+    - target: {fileID: 7015568786068917031, guid: 5296bfd469375704cacbe2c0440b00c7,
+        type: 3}
+      propertyPath: spawnValues.x
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 7015568786068917080, guid: 5296bfd469375704cacbe2c0440b00c7,
         type: 3}
       propertyPath: m_Name
